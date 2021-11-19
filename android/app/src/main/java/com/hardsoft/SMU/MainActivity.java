@@ -1,4 +1,4 @@
-package com.hardsoft.SMU;
+package com.hardsoft.smu;
 
 import android.os.Bundle;
 

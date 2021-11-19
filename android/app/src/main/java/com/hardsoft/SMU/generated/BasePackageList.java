@@ -1,4 +1,4 @@
-package com.hardsoft.SMU.generated;
+package com.hardsoft.smu.generated;
 
 import java.util.Arrays;
 import java.util.List;

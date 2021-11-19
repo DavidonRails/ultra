@@ -1,39 +1,31 @@
 {
-  "project_info": {
-    "project_number": "462555851434",
-    "project_id": "mysmu-a3618",
-    "storage_bucket": "mysmu-a3618.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:462555851434:android:dfb471a0503e886172bed3",
-        "android_client_info": {
-          "package_name": "com.hardsoft.SMU"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "462555851434-c2o0ll64ese75mp3104rhnt5fipidhgc.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDouy37iE_OqeKx-tngpwpTRpDdUZ6vy7Y"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "462555851434-c2o0ll64ese75mp3104rhnt5fipidhgc.apps.googleusercontent.com",
-              "client_type": 3
+    "project_info": {
+        "project_number": "672720051908",
+        "project_id": "setmeup-8bcc4",
+        "storage_bucket": "setmeup-8bcc4.appspot.com"
+    },
+    "client": [{
+        "client_info": {
+            "mobilesdk_app_id": "1:672720051908:android:66bc0551a0b07c005e3391",
+            "android_client_info": {
+                "package_name": "com.hardsoft.smu"
             }
-          ]
+        },
+        "oauth_client": [{
+            "client_id": "672720051908-5qarcurg6h27gqc37g3kelv0vo5fmj4o.apps.googleusercontent.com",
+            "client_type": 3
+        }],
+        "api_key": [{
+            "current_key": "AIzaSyC36VAKGM6yNq8U3oaaiQ7XLLb1NDCjw1o"
+        }],
+        "services": {
+            "appinvite_service": {
+                "other_platform_oauth_client": [{
+                    "client_id": "672720051908-5qarcurg6h27gqc37g3kelv0vo5fmj4o.apps.googleusercontent.com",
+                    "client_type": 3
+                }]
+            }
         }
-      }
-    }
-  ],
-  "configuration_version": "1"
+    }],
+    "configuration_version": "1"
 }
