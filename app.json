@@ -1,0 +1,38 @@
+{
+  "name": "SMU",
+  "displayName": "SMU",
+  "expo": {
+    "name": "SMU",
+    "slug": "smu",
+    "icon": "./src/assets/logo.png",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": "",
+    "android": {
+      "package": "com.hardsoft.SMU",
+      "softwareKeyboardLayoutMode": "pan",
+      "versionCode": 2,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBxGnL2aZcZ7s8n-9Ibs6c_l19VWE1BHQQ"
+        }
+      }
+    },
+    "ios": {
+      "requireFullScreen": true,
+      "bundleIdentifier": "com.setmeup",
+      "buildNumber": "1.0.3",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBxGnL2aZcZ7s8n-9Ibs6c_l19VWE1BHQQ"
+      }
+    }
+  }
+}
