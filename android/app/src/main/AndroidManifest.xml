@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.hardsoft.smu">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.setmeup">
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
   <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
@@ -81,7 +81,7 @@
           <action android:name="android.intent.action.VIEW"/>
           <category android:name="android.intent.category.DEFAULT"/>
           <category android:name="android.intent.category.BROWSABLE"/>
-          <data android:scheme="com.hardsoft.smu"/>
+          <data android:scheme="com.setmeup"/>
         </intent-filter>
       </activity>
       <activity

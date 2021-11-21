@@ -1,4 +1,4 @@
-package com.hardsoft.smu.generated;
+package com.setmeup.generated;
 
 import java.util.Arrays;
 import java.util.List;

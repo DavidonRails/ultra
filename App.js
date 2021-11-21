@@ -10,7 +10,7 @@ import AppLoading from 'expo-app-loading';
 import NavigationContainer from './src/navigation/NavigationContainer'
 import Purchases from 'react-native-purchases';
 import {paymentKey, OneSignalKey} from './src/services/config.js'
-// import OneSignal from 'react-native-onesignal';
+
 import * as RootNavigation from './src/navigation/RootNavigation.js';
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
@@ -33,57 +33,31 @@ async function loadAppAplication() {
 const App = () => {
 	const [isReady, setIsReady] = useState(false);
 
-	// useEffect(() => {
-	// 	OneSignal.setAppId(OneSignalKey);
-    //     OneSignal.setLogLevel(6, 0);
-    //     OneSignal.setRequiresUserPrivacyConsent(false);
-    //     OneSignal.promptForPushNotificationsWithUserResponse(response => {
-    //         //console.log("Prompt response:", response);
-    //     });
-	// 	OneSignal.setNotificationOpenedHandler(notification => {
-	// 		if(notification.notification.additionalData.chat) {
-	// 			RootNavigation.navigate('Chat');
-	// 		}
-	// 		if(notification.notification.additionalData.match) {
-	// 			RootNavigation.navigate('Match');
-	// 		}
-	// 		if(notification.notification.additionalData.history) {
-	// 			RootNavigation.navigate('Profile');
-	// 		}
-	// 		if(notification.notification.additionalData.date_payment) {
-	// 			RootNavigation.navigate('ManageSub');
-	// 		}
-    //     });
-    //     OneSignal.setInAppMessageClickHandler(event => {
-    //         //console.log("OneSignal IAM clicked:", event);
-    //     });
-	// 	deviceState()
-    // }, [])
-
 	useEffect(() => {
 		
     }, [])
 
 	const deviceState = async () => {
-			// let state =  await OneSignal.getDeviceState()
-		};
+			
+	};
 
 
 	if (!isReady) {
-    return (
-		<AppLoading 
-			startAsync={loadAppAplication} 
-			onError={err => null}
-			onFinish={() => setIsReady(true)}
-		/>
-		)
+	    return (
+			<AppLoading 
+				startAsync={loadAppAplication} 
+				onError={err => null}
+				onFinish={() => setIsReady(true)}
+			/>
+			)
 	}
-		return (
-			<Provider store={store}>
-					<NavigationContainer/>
-					<StatusBar style="auto" />
-			</Provider>
-		)
+
+	return (
+		<Provider store={store}>
+				<NavigationContainer/>
+				<StatusBar style="auto" />
+		</Provider>
+	)
 	
 	
 };

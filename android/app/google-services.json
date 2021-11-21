@@ -6,9 +6,9 @@
     },
     "client": [{
         "client_info": {
-            "mobilesdk_app_id": "1:672720051908:android:66bc0551a0b07c005e3391",
+            "mobilesdk_app_id": "1:672720051908:android:fda27e55ea66fbd75e3391",
             "android_client_info": {
-                "package_name": "com.hardsoft.smu"
+                "package_name": "com.setmeup"
             }
         },
         "oauth_client": [{
@@ -21,9 +21,18 @@
         "services": {
             "appinvite_service": {
                 "other_platform_oauth_client": [{
-                    "client_id": "672720051908-5qarcurg6h27gqc37g3kelv0vo5fmj4o.apps.googleusercontent.com",
-                    "client_type": 3
-                }]
+                        "client_id": "672720051908-5qarcurg6h27gqc37g3kelv0vo5fmj4o.apps.googleusercontent.com",
+                        "client_type": 3
+                    },
+                    {
+                        "client_id": "672720051908-0i0sq6801ikv1e5cgk866nsd4vr1qmt6.apps.googleusercontent.com",
+                        "client_type": 2,
+                        "ios_info": {
+                            "bundle_id": "com.setmeup",
+                            "app_store_id": "1557123322"
+                        }
+                    }
+                ]
             }
         }
     }],

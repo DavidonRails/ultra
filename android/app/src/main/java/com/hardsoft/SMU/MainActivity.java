@@ -1,4 +1,4 @@
-package com.hardsoft.smu;
+package com.setmeup;
 
 import android.os.Bundle;
 
