@@ -4,7 +4,13 @@
 #import <UIKit/UIKit.h>
 
 #import <UMCore/UMAppDelegateWrapper.h>
+#import <UserNotifications/UNUserNotificationCenter.h>
 
-@interface AppDelegate : UMAppDelegateWrapper <RCTBridgeDelegate, EXUpdatesAppControllerDelegate>
+#import <UserNotifications/UserNotifications.h>
+#import <RNCPushNotificationIOS/RNCPushNotificationIOS.h>
+
+@interface AppDelegate : UMAppDelegateWrapper <RCTBridgeDelegate, EXUpdatesAppControllerDelegate, UNUserNotificationCenterDelegate>
 
 @end
+
+

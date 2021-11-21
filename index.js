@@ -1,6 +1,8 @@
 import { registerRootComponent } from 'expo';
 
 import App from './App';
+import PushNotificationIOS from "@react-native-community/push-notification-ios";
+
 import PushNotification from "react-native-push-notification";
 registerRootComponent(App);
 PushNotification.configure({
@@ -16,6 +18,7 @@ PushNotification.configure({
       // process the notification
   
       // (required) Called when a remote is received or opened, or local notification is opened
+     notification.finish(PushNotificationIOS.FetchResult.NoData);
 
     },
   
