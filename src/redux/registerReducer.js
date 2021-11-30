@@ -19,6 +19,7 @@ import {
   getUserProfile,
   checkSignUpPhone,
   verifyCodePhone,
+  sendFCMToken,
 } from '../services/http';
 import {AsyncStorage} from 'react-native';
 import {STRIPE_PUBLISHABLE_KEY, OneSignalKey} from '../services/config';
@@ -575,13 +576,16 @@ export const setLists = (
 };
 
 export const userLogin = (email, password, navigation) => {
+  
   return (dispatch) => {
     dispatch(setLoading(true));
     loginUser(email, password)
-      .then((data) => {
+      .then(async (data) => {
         dispatch(setErrorTextLogin(''));
         dispatch(setIsLogin(true));
         AsyncStorage.setItem('userToken', data.data.access);
+        const accessToken = data.data.access;
+        
         AsyncStorage.setItem('email', email);
         AsyncStorage.setItem('password', password);
         getUserProfile(data.data.access).then((user) => {
@@ -594,6 +598,17 @@ export const userLogin = (email, password, navigation) => {
           //   },
           // );
         });
+        const fcmToken = JSON.parse(await AsyncStorage.getItem('fcmToken'));
+        
+        await sendFCMToken(fcmToken, accessToken)
+        .then(function (response) {
+          console.log("FCM Success : ", response.data);
+        }).catch(error => {
+          if( error.response ) {
+              console.log("FCM Failed : ", error.response.data); // => the response payload 
+          }
+        });
+        
       })
       .then(() => {
         dispatch(setErrorTextLogin(''));

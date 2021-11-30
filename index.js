@@ -1,14 +1,20 @@
 import { registerRootComponent } from 'expo';
 
 import App from './App';
-import PushNotificationIOS from "@react-native-community/push-notification-ios";
+import { 
+  sendDevicToken
+} from './src/redux/appReducer'
+import {AsyncStorage} from 'react-native';
 
+import PushNotificationIOS from "@react-native-community/push-notification-ios";
 import PushNotification from "react-native-push-notification";
+
 registerRootComponent(App);
 PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function (token) {
-      console.log("TOKEN:", token);
+      console.log("FCM TOKEN:", token);
+      AsyncStorage.setItem('fcmToken', JSON.stringify(token));
     },
   
     // (required) Called when a remote is received or opened, or local notification is opened
@@ -18,7 +24,7 @@ PushNotification.configure({
       // process the notification
   
       // (required) Called when a remote is received or opened, or local notification is opened
-     notification.finish(PushNotificationIOS.FetchResult.NoData);
+      notification.finish(PushNotificationIOS.FetchResult.NoData);
 
     },
   

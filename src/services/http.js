@@ -188,6 +188,27 @@ export const userInterest = async (
   });
 };
 
+export const sendFCMToken = async (params, token) => {
+  const axios = require('axios')
+  var data = JSON.stringify({
+    registration_id: params.token,
+    type: params.os
+  });
+  
+  var config = {
+    method: 'post',
+    url: `${url}/api/devices`,
+    headers: { 
+      'Authorization': `Bearer ${token}`, 
+      'Content-Type': 'application/json',
+    },
+    data : data
+  };
+
+  return axios(config);
+};
+
+
 export const getUserInterest = async (
   token
 ) => {

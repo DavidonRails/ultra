@@ -1,4 +1,5 @@
 import {
+  sendFCMToken,
   getUserProfile,
   setPhoto,
   FAQ,
@@ -250,6 +251,22 @@ const appReducer = (state = initialState, action) => {
       };
     default:
       return state;
+  }
+};
+
+export const sendDevicToken = async () => {
+  const fcmToken = JSON.parse(await AsyncStorage.getItem('fcmToken'));
+  const accessToken = JSON.parse(await AsyncStorage.getItem('userToken'));
+  if( accessToken ){
+    await sendFCMToken(fcmToken)
+    .then((response) => {
+      console.log("FCM Token Registration Success :", response.data);
+    })
+    .catch((error) => {
+      if( error.response ) {
+        console.log("FCM Token Registration Faid :", error.response.data);
+      }
+    });
   }
 };
 

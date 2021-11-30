@@ -1,5 +1,5 @@
-export const url = `https://app.setmeup.io`;
-// export const url = `https://dev.setmeup.io`
+// export const url = `https://app.setmeup.io`;
+export const url = `https://dev.setmeup.io`
 //export const STRIPE_PUBLISHABLE_KEY = 'pk_test_2gXJKZ1gBdf5yzj3nfrB4Pto00W1ky0zBd';
 export const STRIPE_PUBLISHABLE_KEY =
   'pk_live_51I3wpqE1qaCt5TVn9V19Urybkbl9M4m8TuKhHTWuaSJ3zQdFSfOys8amTYlqR48bj1bDz3wqHbVNmjDJweN36UBc00wLAYVXQo';

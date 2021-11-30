@@ -81,7 +81,9 @@ export default function LoginComponent(props) {
             background={'#ffffff'}
             btn={'Sign in'}
             textColor={'#E19278'}
-            press={() => props.userLogin(email, password)}
+            press={() => {
+              props.userLogin(email, password)
+            }}
           />
         )}
       </KeyboardAvoidingView>
