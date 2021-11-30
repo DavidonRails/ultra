@@ -260,11 +260,11 @@ export const sendDevicToken = async () => {
   if( accessToken ){
     await sendFCMToken(fcmToken)
     .then((response) => {
-      console.log("FCM Token Registration Success :", response.data);
+      // console.log("FCM Token Registration Success :", response.data);
     })
     .catch((error) => {
       if( error.response ) {
-        console.log("FCM Token Registration Faid :", error.response.data);
+        // console.log("FCM Token Registration Faid :", error.response.data);
       }
     });
   }
