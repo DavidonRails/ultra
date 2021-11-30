@@ -7,3 +7,5 @@ export const STRIPE_PUBLISHABLE_KEY =
 export const paymentKey = 'PUBXFVdkFDBLSpsqYeqNXtGdelDDYoMN';
 //export const OneSignalKey = '0ef2e1d5-14cd-40f2-a173-aef1eb97edf2'
 export const OneSignalKey = 'f35c527c-c334-43d2-81f4-dd2fc23965b3'; //test
+
+export const firebaseKey = 'AAAAnKE9XsQ:APA91bEVZNBFeNY9RGMTa1OEZadGeJCVBMDG5iZqPomllTRepwdIBbsSrH0t53UqrF5RE6oBduqyrxj9HvhfiK-JgXaKUDLJpDWVEtx6Ojpc1F2Hdnky42ctVWO8XI0lXs54xts6sHe4';

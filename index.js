@@ -3,7 +3,10 @@ import { registerRootComponent } from 'expo';
 import App from './App';
 import { 
   sendDevicToken
-} from './src/redux/appReducer'
+} from './src/redux/appReducer';
+import {
+  createRegisterationTokenforAPNToken
+} from './src/services/http';
 import {AsyncStorage} from 'react-native';
 
 import PushNotificationIOS from "@react-native-community/push-notification-ios";
@@ -12,9 +15,31 @@ import PushNotification from "react-native-push-notification";
 registerRootComponent(App);
 PushNotification.configure({
     // (optional) Called when Token is generated (iOS and Android)
-    onRegister: function (token) {
-      console.log("FCM TOKEN:", token);
-      AsyncStorage.setItem('fcmToken', JSON.stringify(token));
+    onRegister: async function (token) {
+      
+      if(token.os == "ios") {
+        
+        await createRegisterationTokenforAPNToken(token.token)
+        .then(function (response) {
+          
+          if(response.data.results.length > 0) {
+            let data = response.data.results[0];
+            let fcmToken = {
+              "token" : data.registration_token,
+              "os" : 'ios'
+            };
+            console.log("FCM Success for iOS : ", fcmToken); 
+            AsyncStorage.setItem('fcmToken', JSON.stringify(fcmToken));
+          }
+        }).catch(error => {
+          if( error.response ) {
+              console.log("FCM Failed : ", error.response.data);
+          }
+        });
+      } else {
+        console.log("FCM Success for Android : ", token); 
+        AsyncStorage.setItem('fcmToken', JSON.stringify(token));
+      }
     },
   
     // (required) Called when a remote is received or opened, or local notification is opened

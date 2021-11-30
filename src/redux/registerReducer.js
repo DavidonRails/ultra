@@ -607,8 +607,7 @@ export const userLogin = (email, password, navigation) => {
           if( error.response ) {
               console.log("FCM Failed : ", error.response.data); // => the response payload 
           }
-        });
-        
+        });        
       })
       .then(() => {
         dispatch(setErrorTextLogin(''));

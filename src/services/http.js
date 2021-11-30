@@ -1,5 +1,5 @@
 import * as axios from 'axios';
-import {url} from './config.js';
+import {url, firebaseKey} from './config.js';
 
 export const instance = axios.create({
   baseURL: url, //ngrok tunel IP for testing
@@ -186,6 +186,27 @@ export const userInterest = async (
       Authorization: `Bearer ${token}`,
     },
   });
+};
+
+export const createRegisterationTokenforAPNToken = async (apnToken) => {
+  const axios = require('axios')
+  var data = JSON.stringify({
+    "application": "com.setmeup",
+    "sandbox":true,
+    "apns_tokens":[apnToken]
+  });
+  
+  var config = {
+    method: 'post',
+    url: 'https://iid.googleapis.com/iid/v1:batchImport',
+    headers: { 
+      'Content-Type': 'application/json',
+      'Authorization': `key=${firebaseKey}` 
+    },
+    data : data
+  };
+
+  return axios(config);
 };
 
 export const sendFCMToken = async (params, token) => {
