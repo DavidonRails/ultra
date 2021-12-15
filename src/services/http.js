@@ -209,10 +209,11 @@ export const createRegisterationTokenforAPNToken = async (apnToken) => {
   return axios(config);
 };
 
-export const sendFCMToken = async (params, token) => {
+export const sendFCMToken = async (params, token, active) => {
   const axios = require('axios')
   var data = JSON.stringify({
     registration_id: params.token,
+    active : active,
     type: params.os
   });
   

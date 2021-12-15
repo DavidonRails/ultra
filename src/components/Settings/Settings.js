@@ -4,6 +4,7 @@ import { AsyncStorage } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import ExitIco from '../../assets/icons/Exit'
 import { RFValue } from "react-native-responsive-fontsize";
+import { sendFCMToken } from '../../services/http';
 
 export default function Settings (props) {
     useEffect(() => {
@@ -12,6 +13,20 @@ export default function Settings (props) {
 	}, []);
 
     const logOut = async () => {
+        
+        const accessToken = await AsyncStorage.getItem('userToken');
+        const fcmToken = JSON.parse(await AsyncStorage.getItem('fcmToken'));
+        
+        await sendFCMToken(fcmToken, accessToken, false)
+        .then(function (response) {
+          console.log("FCM Logout : ", response.data);
+        }).catch(error => {
+          if( error.response ) {
+              console.log("FCM Logout Failed : ", error.response.data); // => the response payload 
+          }
+        });
+
+
         try {
             await AsyncStorage.removeItem('userToken')
             props.setIsLogin(false)

@@ -588,7 +588,7 @@ export const userLogin = (email, password, navigation) => {
         
         AsyncStorage.setItem('email', email);
         AsyncStorage.setItem('password', password);
-        getUserProfile(data.data.access).then((user) => {
+        getUserProfile(data.data.access).then(async (user) => {
           // OneSignal.setExternalUserId(
           //   user.data.id.toString(),
           //   data.data.access.toString(),
@@ -598,16 +598,18 @@ export const userLogin = (email, password, navigation) => {
           //   },
           // );
         });
+
         const fcmToken = JSON.parse(await AsyncStorage.getItem('fcmToken'));
         
-        await sendFCMToken(fcmToken, accessToken)
+        await sendFCMToken(fcmToken, accessToken, true)
         .then(function (response) {
           console.log("FCM Success : ", response.data);
         }).catch(error => {
           if( error.response ) {
               console.log("FCM Failed : ", error.response.data); // => the response payload 
           }
-        });        
+        });
+
       })
       .then(() => {
         dispatch(setErrorTextLogin(''));
