@@ -192,7 +192,7 @@ export const createRegisterationTokenforAPNToken = async (apnToken) => {
   const axios = require('axios')
   var data = JSON.stringify({
     "application": "com.setmeup",
-    "sandbox":true,
+    "sandbox":false,
     "apns_tokens":[apnToken]
   });
   
